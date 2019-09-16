@@ -1,0 +1,45 @@
+
+.cocktail-index{
+  margin-top: 50px;
+  h2{
+    color: $light-teal;
+  }
+
+  h1{
+    color: $light-teal;
+    font-size: 36px;
+    padding-top: 100px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .card{
+    background: linear-gradient(0deg, rgba(47, 24, 71, 0.32), rgba(47, 24, 71, 0.32)), url('cocktail.png'), #FFD2FC;
+    height: 275px;
+    border-radius: 13px;
+    background-color: $light-pink;
+    color: white;
+    margin-bottom: 33px;
+    position: relative;
+  }
+
+  .flavor{
+    background: $magenta;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-right: 12px;
+  }
+
+  .bottom-left{
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    font-size: 18px;
+  }
+
+  .top-right{
+    position: absolute;
+    top: 0;
+    left: 10px;
+  }
+}

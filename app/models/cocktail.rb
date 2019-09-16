@@ -13,4 +13,7 @@ class Cocktail < ApplicationRecord
     message: "%{value} is not a valid difficulty" }
   validates :strength, inclusion: { in: %w(Light Medium Strong),
     message: "%{value} is not a valid difficulty" }
+
+
+  serialize :flavor
 end
