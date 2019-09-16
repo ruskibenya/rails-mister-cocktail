@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_134635) do
+ActiveRecord::Schema.define(version: 2019_09_16_162336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cocktails", force: :cascade do |t|
+    t.string "name"
+    t.string "glass"
+    t.string "base_spirit"
+    t.string "flavor"
+    t.string "difficulty"
+    t.string "prep_time"
+    t.string "description"
+    t.string "photo"
+    t.string "strength"
+    t.string "garnish"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "dose_id"
+    t.index ["dose_id"], name: "index_cocktails_on_dose_id"
+    t.index ["user_id"], name: "index_cocktails_on_user_id"
+  end
+
+  create_table "doses", force: :cascade do |t|
+    t.string "quantity"
+    t.string "units"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_doses_on_ingredient_id"
+  end
+
+  create_table "favorite_cocktails", force: :cascade do |t|
+    t.integer "cocktail_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +70,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_134635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cocktails", "doses"
+  add_foreign_key "cocktails", "users"
+  add_foreign_key "doses", "ingredients"
 end
