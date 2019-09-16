@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="row">
+  <div class="col-1"></div>
+  <%= link_to root_path, class: "col-10" do %>
+    <%= image_tag 'TENDER.png', class: 'center-logo' %>
+  <% end %>
+  <div class="col-1"></div>
+</div>
+
+<%= video_tag "liquor.m4v", class: "home-video", autoplay: :autoplay,
+  loop: :loop, muted: true, controls: true %>
+
+  <div class="container">
+    <%= link_to "LOG IN", new_user_session_path, class: "btn big-btn bg-magenta col-xs-12" %>
+    <%= link_to "SIGN UP", new_user_registration_path, class: "btn big-btn bg-salmon col-xs-12" %>
+  </div>
+
+

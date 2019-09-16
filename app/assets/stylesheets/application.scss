@@ -11,3 +11,68 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body{
+  background-color: $body-color;
+  margin: 0;
+  color: $light-pink;
+}
+
+.center-logo{
+  margin-top: 100px;
+  width: 100%;
+}
+
+.new_user{
+  margin-top: 150px;
+}
+
+.pink-skinny-round-btn{
+  background-color: $salmon;
+  border-color: transparent;
+  height: 33px;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 10px !important;
+}
+
+.pink-skinny-round-btn::placeholder{
+  color: white;
+  font-size: 24px;
+}
+
+
+.big-btn{
+  border-color: transparent;
+  border-radius: 15px;
+  height: 47px;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  padding-bottom: 55px;
+  margin-bottom: 1.25rem;
+}
+
+
+.bg-magenta{
+  background-color: $magenta;
+}
+
+.bg-salmon{
+  background-color: $salmon;
+}
+
+.form-group{
+  margin-bottom: 1.5rem;
+}
+
+.user_remember_me{
+  margin-left: 2.5%;
+}
