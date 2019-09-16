@@ -10,3 +10,28 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon{
+  .fa-chevron-left{
+    color: $magenta;
+    font-size: 32px;
+  }
+
+  .bookmark{
+    background-color: $magenta;
+    border-radius: 50%;
+    padding: 25px;
+    width: 32px;
+    height: 32px;
+    position: relative;
+
+    .fa-bookmark{
+      font-size: 32px;
+      position: absolute;
+      top: 10px;
+      left: 13px
+
+    }
+  }
+
+}

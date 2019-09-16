@@ -8,10 +8,15 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= favicon_link_tag asset_path('tend-fav.png') %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' if signed_in? %>
+    <% unless controller_name == "cocktails" && action_name == "show" %>
+      <%= render 'shared/navbar' if signed_in? %>
+    <% else %>
+      <%= render 'shared/navbar-show' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>

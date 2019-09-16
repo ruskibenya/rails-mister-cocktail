@@ -59,7 +59,15 @@
       <% end %>
     </div>
     <div id="reviews" class="tab-pane fade">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <% if @cocktail.reviews.blank? %>
+        Be the first to leave a review for <%= @cocktail.name %>
+        <%= render 'reviews/form', cocktail: @cocktail, review: @review %>
+      <% else %>
+        <%= render 'reviews/form', cocktail: @cocktail, review: @review %>
+        <% @cocktail.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
