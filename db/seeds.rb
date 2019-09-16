@@ -11,13 +11,18 @@ require 'json'
 require 'faker'
 
 
+puts "deleting doses"
+Dose.destroy_all
+
+puts "deleting cocktails"
+Cocktail.destroy_all
 
 puts "deleting ingredients"
 Ingredient.destroy_all
-puts "deleting cocktails"
-Cocktail.destroy_all
+
 puts "deleting users"
 User.destroy_all
+
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 cocktail_serialized = open(url).read
@@ -38,7 +43,16 @@ end
 
 puts "creating cocktails"
 10.times do
-  Cocktail.create!(user: user, name: Faker::Name.unique.name , glass: "coupe", base_spirit: "rum", flavor: ["Fruity/Citrus-Forward", "Sweet", "Sour"], difficulty: "Medium", strength: "Medium", prep_time: "medium", description: "The best Daiquiris aren’t made in machines and garnished with mini umbrellas. This elegant take on the tropical classic combines freshly squeezed lime juice, real sugar and world-class rum.", photo: "cocktail.png")
+  Cocktail.create!(user: user, name: Faker::Name.unique.name , glass: "coupe", base_spirit: "rum", flavor: ["Fruity/Citrus-Forward", "Sweet", "Sour"], difficulty: "Medium", strength: "Medium", prep_time: "medium", description: "The best Daiquiris aren’t made in machines and garnished with mini umbrellas. This elegant take on the tropical classic combines freshly squeezed lime juice, real sugar and world-class rum.", photo: "cocktail.png", instruction: ["Get the ice", "put the drink", "stir the mix", "drink it down"])
+end
+
+first_cocktail = Cocktail.first
+
+puts "creating doses"
+for i in 1..5 do
+  id = Ingredient.first.id
+  puts Ingredient.find(id + i).name
+  dose = Dose.create(ingredient: Ingredient.find(id + i), quantity: "5", units: "oz", cocktail: first_cocktail)
 end
 
 puts "finished seeding"

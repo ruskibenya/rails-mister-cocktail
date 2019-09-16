@@ -1,0 +1,79 @@
+<div class="container cocktail-show">
+  <% if @cocktail.user == current_user %>
+  <div class= "owner-buttons">
+     <%= link_to "EDIT", edit_cocktail_path(@cocktail), class: "btn bg-magenta" %>
+     <%= link_to "DELETE", cocktail_path(@cocktail), method: :delete,
+      data: { confirm: "Are you sure?" }, class: "btn bg-salmon" %>
+  </div>
+
+  <% end %>
+  <h2><%= @cocktail.name %></h2>
+  <div class="row cocktail-icons justify-content-between">
+    <div>
+      <i class="fas fa-tachometer-alt"></i>
+      <%= @cocktail.prep_time %>
+    </div>
+    <div>
+      <i class="fas fa-fist-raised"></i>
+      <%= @cocktail.strength %>
+    </div>
+  </div>
+
+  <%= image_tag @cocktail.photo, class: "cocktail-photo" %>
+
+
+  <p class="show-subtitle">Ingredients</p>
+  <div class="container horz-group">
+    <div class="row flex-nowrap">
+      <% @cocktail.doses.each do |dose| %>
+        <div class="col-xs-4 dose">
+          <div class="card">
+            <%= image_tag dose.ingredient.photo  %>
+          </div>
+          <span class="teal-color">
+            <%= dose.ingredient.name.truncate(15) %>
+          </span>
+          <br>
+          <%= dose.quantity %> <%= dose.units %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="instruct-container">
+  <ul class="nav nav-pills">
+    <li class="active tab-header"><a data-toggle="pill" href="#instructions"><h3>Instructions</h3></a></li>
+    <li class="tab-header"><a data-toggle="pill" href="#reviews"><h3>Reviews</h3></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="instructions" class="tab-pane fade in active show">
+      <% @cocktail.instruction.each_with_index do |instruction, index| %>
+        <div class="row">
+          <div class="instruction-card"><%= index + 1 %></div>
+          <div class="instruction"><%= instruction %></div>
+        </div>
+      <br>
+      <% end %>
+    </div>
+    <div id="reviews" class="tab-pane fade">
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<script>
+  headers = document.querySelectorAll('.tab-header');
+  headers.forEach((header) => {
+    header.addEventListener("click", (event)=> {
+      headers.forEach((h) => {
+        h.classList.toggle('active');
+      })
+    })
+  });
+</script>
+

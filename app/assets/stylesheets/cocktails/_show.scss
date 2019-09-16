@@ -1,0 +1,106 @@
+.cocktail-show{
+  position: relative;
+  h2{
+    color: $light-teal;
+  }
+  .cocktail-icons{
+  width: 50%;
+  margin: -5px 0 0 0;
+  }
+
+  .cocktail-photo{
+    height: 375px;
+    position: absolute;
+    right: -25px;
+  }
+
+  .show-subtitle{
+    font-size: 24px;
+    line-height: 30px;
+    font-family: Source Sans Pro;
+    font-weight: lighter;
+    margin-top: 420px;
+
+  }
+
+  .card{
+    background: #DDFFF7;
+    border-radius: 13px;
+    // height: 80px;
+    width: 108px;
+
+    img{
+      width: 100%;
+    }
+    .card-block {
+      min-height: 300px;
+    }
+  }
+
+  .horz-group{
+    margin-top: -12px;
+  }
+
+  .horz-group > .row {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .horz-group > .row > .col-xs-4 {
+    display: inline-block;
+    float: none;
+  }
+
+  .dose{
+    margin-right: 20px;
+
+    .teal-color{
+      color: $light-teal;
+      font-weight: bold;
+    }
+  }
+
+  .instruct-container{
+    margin-top: 30px;
+
+    h3{
+      text-decoration: none;
+      color: $light-pink;
+    }
+
+    .active{
+      a{
+        h3{
+          font-weight: bold;
+        }
+      }
+    }
+
+    .tab-content{
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+
+    .tab-header{
+      margin-right: 10px;
+    }
+
+    .instruction-card{
+      background: #DDFFF7;
+      border-radius: 13px;
+      width: 77px;
+      height: 50px;
+      color: $magenta;
+      font-weight: bold;
+      text-align: center;
+      font-size: 48px;
+      line-height: 50px;
+    }
+
+    .instruction{
+      margin-left: 20px;
+      vertical-align: middle;
+    }
+  }
+}
+
+

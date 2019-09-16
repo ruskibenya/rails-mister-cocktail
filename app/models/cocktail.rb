@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
   belongs_to :user
-  has_many :doses
+  has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
 
   has_many :favorite_cocktails
@@ -16,4 +16,6 @@ class Cocktail < ApplicationRecord
 
 
   serialize :flavor
+  serialize :ingredients
+  serialize :instruction
 end
