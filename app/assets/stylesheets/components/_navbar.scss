@@ -34,4 +34,11 @@
     }
   }
 
+  .dropdown-item{
+    color: $light-teal !important;
+  }
+  .dropdown-menu-right.show{
+    background: #5c3e7c;
+  }
+
 }

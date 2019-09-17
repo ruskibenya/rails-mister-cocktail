@@ -1,4 +1,19 @@
 <%= simple_form_for([ cocktail, review ], remote: true) do |form| %>
-  <%= form.input :content, label: false%>
-  <%= form.button :submit, class: "bg-magenta" %>
+  <div class="row marg-top-min-10">
+    <%= button_tag(type: 'submit', class: "col-3") do %>
+      <i class="fas fa-plus-circle review-submit"></i>
+    <% end %>
+    <div class="row col-9">
+      <div class="col-12">
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <div class="col-12">
+        <%= form.input :content, label: false, input_html: {placeholder: "Add A Review", class: "review-content"}%>
+      </div>
+    </div>
+  </div>
 <% end %>

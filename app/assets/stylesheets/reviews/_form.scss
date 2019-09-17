@@ -1,3 +1,29 @@
-.review_content{
+.marg-top-min-10{
+  margin-top: -10px;
+}
 
+.review-submit{
+  color: $salmon;
+  font-size: 44px;
+  text-align: center;
+}
+
+.review-content{
+  background-color: $dark-purple;
+  border: 1px solid $salmon;
+  border-style: inset;
+  height: 50px;
+}
+
+.review-content::placeholder{
+  color: $salmon;
+}
+
+
+#reviews{
+  margin-left: -25px;
+}
+
+#new_review{
+    margin-bottom: 20px;
 }

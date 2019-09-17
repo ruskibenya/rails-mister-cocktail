@@ -34,7 +34,7 @@ parsed_cocktails["drinks"].each do |drink|
 end
 
 puts "creating user"
-user = User.create(email: "test@test.com", password: "123456", photo: 'icecube.png')
+user = User.create(email: "test@test.com", password: "123456", photo: 'itamar.jpg')
 
 puts "creating ingredients"
 ingredients.each do |ingredient|

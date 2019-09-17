@@ -23,7 +23,19 @@
     color: white;
     margin-bottom: 33px;
     position: relative;
+
+    // #hidden-desc{
+    //   display: none;
+    // }
   }
+
+  // .card:hover {
+  //   #hidden-desc{
+  //     display: block;
+  //     position: relative;
+  //     z-index: 1;
+  //   }
+  // }
 
   .flavor{
     background: $magenta;
