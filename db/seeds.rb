@@ -10,6 +10,8 @@ require 'open-uri'
 require 'json'
 require 'faker'
 
+puts "deleting reviews"
+Review.destroy_all
 
 puts "deleting doses"
 Dose.destroy_all
@@ -33,8 +35,10 @@ parsed_cocktails["drinks"].each do |drink|
   ingredients.push(drink["strIngredient1"])
 end
 
-puts "creating user"
-user = User.create(email: "test@test.com", password: "123456", photo: 'itamar.jpg')
+puts "creating main user"
+user = User.create(email: "test@test.com", password: "123456", remote_photo_url: "https://icon-library.net/images/rick-sanchez-icon/rick-sanchez-icon-2.jpg")
+
+
 
 puts "creating ingredients"
 ingredients.each do |ingredient|
@@ -55,9 +59,21 @@ for i in 1..5 do
 end
 
 puts "creating favorite cocktails"
-# for i in 1..5 do
-#   id = Cocktail.first.id
-#   FavoriteCocktail.create(user: user, cocktail: Cocktail.find(id + 1))
-# end
+for i in 1..5 do
+  id = Cocktail.first.id
+  FavoriteCocktail.create(user: user, cocktail: Cocktail.find(id + 1))
+end
+
+puts "creating reviews"
+photo_url = "https://icon-library.net/images/rick-sanchez-icon/rick-sanchez-icon-2.jpg"
+for i in 1..5 do
+  first_id = Cocktail.first.id
+  review_cocktail = Cocktail.find(first_id + i - 1)
+  for m in 1..5 do
+    review_user = User.create(email: Faker::Internet.unique.email, password: "123456", remote_photo_url: photo_url)
+    Review.create!(content: Faker::Restaurant.review, rating: rand(5), user_id: review_user.id, cocktail: review_cocktail)
+  end
+end
+
 
 puts "finished seeding"
