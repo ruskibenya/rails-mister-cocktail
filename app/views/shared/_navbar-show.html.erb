@@ -3,7 +3,17 @@
     <i class="fas fa-chevron-left"></i>
   <% end %>
 
-  <div class="bookmark">
-    <i class="far fa-bookmark"></i>
-  </div>
+    <% if @favorited %>
+      <div class="unbookmark bookmark">
+        <%= link_to favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put do %>
+          <i class="far fa-bookmark unfavorite"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="bookmark">
+        <%= link_to favorite_cocktail_path(@cocktail, type: "favorite"), method: :put  do %>
+          <i class="far fa-bookmark favorite"></i>
+        <% end %>
+      </div>
+    <% end %>
 </div>

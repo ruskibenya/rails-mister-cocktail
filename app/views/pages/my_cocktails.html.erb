@@ -1,0 +1,88 @@
+<div class="container my_cocktails favorite_cocktails">
+  <div class=" my_cocktails-container">
+    <ul class="nav nav-pills">
+      <li class="active tab-header"><a data-toggle="pill" href="#my_cocktails"><h3>My Cocktails</h3></a></li>
+      <li class="tab-header"><a data-toggle="pill" href="#favorites"><h3 id="favorite-header">Favorites</h3></a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="my_cocktails" class="tab-pane fade in active show">
+        <div class="container cards">
+          <% @my_cocktails.each do |cocktail| %>
+            <div class="my_cocktail_card row">
+              <div class="card col-4">
+                <%= image_tag cocktail.photo%>
+              </div>
+              <div class="col-8">
+                <div class="row">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <p id="review-count">(<%= cocktail.reviews.size %>)</p>
+                </div>
+                <h1><%= cocktail.name.truncate(15) %></h1>
+                <div class= "my_cocktail_buttons">
+                  <%= link_to cocktail_path(cocktail), method: :delete,
+                    data: { confirm: "Are you sure?" }, class: "btn"  do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  <%= link_to edit_cocktail_path(cocktail), class: "btn" do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                  <%= link_to cocktail_path(cocktail), class: "btn" do %>
+                    <i class="far fa-eye"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div id="favorites" class="tab-pane fade">
+        <div class="container cards">
+          <% @fav_cocktails.each do |cocktail| %>
+
+            <div class="my_cocktail_card row">
+
+              <div class="card col-4">
+                <%= image_tag cocktail.photo%>
+              </div>
+              <div class="col-8">
+                <div class="row">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <p id="review-count">(<%= cocktail.reviews.size %>)</p>
+                </div>
+                <h1><%= cocktail.name.truncate(15) %></h1>
+                <div class="row fav_icons">
+                  <%= cocktail.base_spirit %>
+                  <i class="fas fa-glass-martini-alt"></i>
+                  <%= cocktail.glass %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  headers = document.querySelectorAll('.tab-header');
+  headers.forEach((header) => {
+    header.addEventListener("click", (event)=> {
+      headers.forEach((h) => {
+        h.classList.toggle('active');
+      })
+    })
+  });
+</script>
+
+

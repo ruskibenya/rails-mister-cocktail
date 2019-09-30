@@ -51,8 +51,13 @@ first_cocktail = Cocktail.first
 puts "creating doses"
 for i in 1..5 do
   id = Ingredient.first.id
-  puts Ingredient.find(id + i).name
-  dose = Dose.create(ingredient: Ingredient.find(id + i), quantity: "5", units: "oz", cocktail: first_cocktail)
+  Dose.create(ingredient: Ingredient.find(id + i), quantity: "5", units: "oz", cocktail: first_cocktail)
 end
+
+puts "creating favorite cocktails"
+# for i in 1..5 do
+#   id = Cocktail.first.id
+#   FavoriteCocktail.create(user: user, cocktail: Cocktail.find(id + 1))
+# end
 
 puts "finished seeding"

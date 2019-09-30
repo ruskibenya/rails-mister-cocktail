@@ -1,11 +1,20 @@
 class CocktailsController < ApplicationController
-    def index
-    @cocktails = Cocktail.all
+  def index
+  @cocktails = Cocktail.all
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
     @review = Review.new
+
+    fav_cocktails = []
+    current_user.favorite_cocktails.each do |fav|
+      fav_cocktails.push(fav.cocktail_id)
+    end
+
+    # @favorited = current_user.favorite_cocktails.include?(@place.id)
+    fav_cocktails.include?(@cocktail.id)
+
   end
 
   def new
@@ -25,6 +34,23 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy
     redirect_to cocktails_path
+  end
+
+  def favorite
+    type = params[:type]
+    @cocktail = Cocktail.find(params[:id])
+    if type == "favorite"
+      current_user.favorites << @cocktail
+      redirect_back fallback_location: root_path, notice: 'You favorited #{@cocktail.name}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@cocktail)
+      redirect_back fallback_location: root_path, notice: 'Unfavorited #{@cocktail.name}'
+
+    else
+      # Type missing, nothing happens
+      redirect_back fallback_location: root_path, notice: 'Nothing happened.'
+    end
   end
 
   private
