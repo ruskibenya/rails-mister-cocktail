@@ -4,16 +4,25 @@
   <h3>TODO: Checkboxes for filters</h3>
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
+      <% ratings = [] %>
+      <% cocktail.reviews.each do |review| %>
+        <% ratings.push(review.rating) %>
+      <% end %>
     <!-- TODO: Fix to make background image dynamic -->
     <!-- <div class="card" style="background-image: linear-gradient(0deg, rgba(47, 24, 71, 0.32), rgba(47, 24, 71, 0.32)), url("#{<%= image_path 'cocktail.png' %>}"), #FFD2FC"> -->
       <%= link_to cocktail_path(cocktail) do  %>
         <div class="card">
           <div class="top-right">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <% unless ratings == [] %>
+              <% for i in 1..(ratings.sum.to_f / ratings.size).ceil do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% for i in 1..(5 - (ratings.sum.to_f / ratings.size).ceil) do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            <% else %>
+                <p>No Reviews</p>
+            <% end %>
           </div>
           <!-- <p id="hidden-desc"><%= cocktail.description %></p> -->
           <h1><%= cocktail.name.truncate(18) %></h1>

@@ -1,3 +1,10 @@
 .review{
   margin-bottom: 15px;
+  .content{
+    height: 38px;
+    overflow-y: scroll;
+  }
+  .fa-star{
+    color: $light-teal;
+  }
 }
