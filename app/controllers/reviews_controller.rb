@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
           format.js  # <-- will render `app/views/reviews/create.js.erb`
         end
     else
+      flash[:alert] = "Something went wrong."
       respond_to do |format|
         format.html { render 'cocktails/show' }
         format.js  # <-- idem
@@ -19,6 +20,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :rating)
   end
 end

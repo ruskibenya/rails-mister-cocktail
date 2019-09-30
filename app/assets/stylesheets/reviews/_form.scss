@@ -1,5 +1,13 @@
 .marg-top-min-10{
   margin-top: -10px;
+
+  .br-theme-css-stars .br-widget a:after{
+    color: $light-teal;
+
+  }
+  .br-theme-css-stars .br-widget{
+    height: 10px;
+  }
 }
 
 .review-submit{
@@ -27,3 +35,4 @@
 #new_review{
     margin-bottom: 20px;
 }
+
