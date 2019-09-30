@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
   has_many :cocktails
   has_many :favorite_cocktails
-  has_many :favorites, through: :favorite_cocktails, source: :cocktails
+  has_many :favorites, through: :favorite_cocktails, source: :cocktail
+
+  mount_uploader :photo, PhotoUploader
+
 end

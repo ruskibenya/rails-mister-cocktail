@@ -1,0 +1,88 @@
+.my_cocktails{
+  h3{
+    color: $light-teal;
+  }
+
+  .active{
+    h3{
+      font-weight: bold;
+    }
+  }
+
+  .my_cocktail_card{
+    text-align: center;
+    margin-bottom: 15px;
+
+    .card{
+      background: #DDFFF7;
+      border-radius: 13px;
+      height: 80px;
+      width: 108px;
+      margin: 0;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+        display: block;
+      }
+      .card-block {
+        min-height: 300px;
+      }
+    }
+
+    .col-8{
+      .row{
+        margin: 0;
+        margin-left: 25%;
+      }
+    }
+  }
+
+  .fa-star{
+    color: $salmon;
+    margin-left: 3px;
+  }
+
+  h1{
+    font-size: 24px;
+    color: $light-teal;
+  }
+
+  #review-count{
+    color: white;
+    font-weight: bold;
+    margin-bottom: -15px;
+    line-height: 0.9;
+    margin-left: 5px;
+  }
+
+  .my_cocktail_buttons{
+    margin-top: -5px;
+    display: flex;
+    justify-content: space-evenly;
+    .btn{
+      background-color: $magenta;
+      color: $light-pink;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 2px 10px;
+    }
+  }
+
+  .fav_icons{
+    margin-top: -5px;
+    margin-left: 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+    color: $magenta;
+
+    i{
+      color: white;
+    }
+  }
+
+  #favorite-header{
+    margin-left: 6px;
+  }
+}

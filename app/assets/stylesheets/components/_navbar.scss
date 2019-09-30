@@ -19,6 +19,7 @@
 
   .bookmark{
     background-color: $magenta;
+
     border-radius: 50%;
     padding: 25px;
     width: 32px;
@@ -32,7 +33,17 @@
       left: 13px
 
     }
+
+    .favorite{
+      color: $light-pink;
+    }
   }
+      .unbookmark{
+      background-color: $light-pink !important;
+      .unfavorite{
+        color: $magenta;
+      }
+    }
 
   .dropdown-item{
     color: $light-teal !important;
