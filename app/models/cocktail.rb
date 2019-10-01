@@ -30,4 +30,7 @@ class Cocktail < ApplicationRecord
   serialize :flavor
   serialize :ingredients
   serialize :instruction
+
+  mount_uploader :photo, PhotoUploader
+
 end

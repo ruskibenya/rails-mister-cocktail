@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <%= image_tag @cocktail.photo, class: "cocktail-photo" %>
+  <%= cl_image_tag @cocktail.photo, class: "cocktail-photo" %>
 
 
   <p class="show-subtitle">Ingredients</p>
@@ -28,7 +28,7 @@
       <% @cocktail.doses.each do |dose| %>
         <div class="col-xs-4 dose">
           <div class="card">
-            <%= image_tag dose.ingredient.photo  %>
+            <%= cl_image_tag dose.ingredient.photo  %>
           </div>
           <span class="teal-color">
             <%= dose.ingredient.name.truncate(15) %>
@@ -51,9 +51,9 @@
     <div class="tab-content">
       <div id="instructions" class="tab-pane fade in active show">
         <% @cocktail.instruction.each_with_index do |instruction, index| %>
-          <div class="row">
-            <div class="instruction-card"><%= index + 1 %></div>
-            <div class="instruction"><%= instruction %></div>
+          <div class="flex">
+            <div class="instruction-card col-2"><%= index + 1 %></div>
+            <div class="instruction col-10"><%= instruction %></div>
           </div>
         <br>
         <% end %>
