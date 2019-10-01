@@ -42,6 +42,7 @@ reviewer_three = User.create(email: Faker::Internet.unique.email, password: "123
 
 
 puts "creating ingredients"
+<<<<<<< HEAD
 Ingredient.create(name: "Applejack", remote_photo_url: "https://res.cloudinary.com/duaw4fdu2/image/upload/v1569944214/mister_cocktail/applejack.png")
 Ingredient.create(name: "Gin", remote_photo_url: "https://res.cloudinary.com/duaw4fdu2/image/upload/v1569944214/mister_cocktail/gin.jpg")
 Ingredient.create(name: "Dark Rum", remote_photo_url: "https://res.cloudinary.com/duaw4fdu2/image/upload/v1569944841/mister_cocktail/darm_rum.webp")

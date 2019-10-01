@@ -21,7 +21,8 @@ class CocktailsController < ApplicationController
   end
 
   def new
-    @cocktail = Cocktail.new
+    @cocktail = Cocktail.create!(user: current_user, status: 'new')
+    redirect_to cocktail_build_path(@cocktail.id, :add_name)
   end
 
   def create

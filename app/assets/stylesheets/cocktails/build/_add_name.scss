@@ -1,0 +1,145 @@
+.add_name{
+  h1{
+    color: $light-teal;
+    font-size: 32px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Playfair Display'
+  }
+  h3{
+    font-size: 24px;
+    text-align: center;
+    color: $light-pink;
+    font-family: 'Source Sans Pro'
+  }
+
+  .form-group{
+    label{
+      color: white;
+      margin-left: 5%;
+      margin-bottom: 0;
+    }
+    input{
+      width: 85%;
+    }
+  }
+
+  .form-inputs{
+    .row{
+      padding-left: 1.5%;
+      padding-right: 11.5%;
+    }
+  }
+    .cocktail_difficulty{
+      width: 85% !important;
+      margin-left: 2.5% !important;
+
+      .irs-single{
+        display: none;
+      }
+      .irs-max{
+        display: none;
+      }
+      .irs-min{
+        display: none;
+      }
+      .irs--round .irs-bar{
+        background-color: $magenta;
+      }
+      .irs--round .irs-handle{
+        border-color: $magenta;
+      }
+      .irs.irs--round.js-irs-0{
+        margin-top: -30px;
+      }
+    }
+
+    .cocktail_prep_time{
+      width: 85% !important;
+      margin-left: 2.5% !important;
+
+      .irs-single{
+        display: none;
+      }
+      .irs-max{
+        display: none;
+      }
+      .irs-min{
+        display: none;
+      }
+      .irs--round .irs-bar{
+        background-color: $magenta;
+      }
+      .irs--round .irs-handle{
+        border-color: $magenta;
+      }
+      .irs.irs--round.js-irs-1{
+        margin-top: -30px;
+      }
+    }
+
+    i.fa-chevron-down{
+        position: relative;
+        top: -49px;
+        color: $light-teal;
+        left: 80%;
+    }
+
+    .cocktail_flavor{
+      margin-top: -7%;
+      // background-color: white;
+
+      // legend{
+      //   background-color: $dark-purple;
+      // }
+      .form-check{
+        // background-color: rgba(214, 58, 249, 0.2);
+        border-radius: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0;
+        width: 39%;
+        input{
+          display: none;
+        }
+
+        label{
+          color: $magenta;
+        }
+        label.selected{
+          color: $light-pink;
+        }
+      }
+      .selected {
+        background-color: $magenta;
+      }
+      .not-selected{
+        background-color: $light-pink;
+      }
+    }
+
+    .grn-btn{
+      background-color: $light-teal;
+      color: $magenta;
+    }
+
+    .button{
+      border-color: transparent;
+      height: 33px;
+      width: 95%;
+      margin-left: 2.5%;
+      margin-right: 2.5%;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    // .active{
+    //   color: #FFD2FC;
+    //   background-color: #D63AF9;
+    //   // $light-pink: #FFD2FC;
+    //   // $salmon: #F9B3D1;
+    //   // $magenta: #D63AF9;
+    // }
+}
