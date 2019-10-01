@@ -1,4 +1,14 @@
 class Cocktail < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_attributes_and_ingredients,
+    against: [ :name, :base_spirit, :glass, :flavor, :difficulty, :description, :strength, :garnish ],
+    associated_against: {
+      ingredients: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   belongs_to :user
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses

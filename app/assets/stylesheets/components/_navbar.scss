@@ -12,6 +12,26 @@
 }
 
 .navbar-lewagon{
+  i{
+    color: $light-pink;
+    font-size: 30px;
+  }
+
+  .form-control{
+    background-color: $dark-purple;
+    width: 75%;
+    color: $light-pink;
+    border-color: $light-pink;
+  }
+  .dropdown-toggle::after{
+    display: none;
+  }
+
+  .flex{
+    display: flex;
+    margin-top: 2%;
+  }
+
   .fa-chevron-left{
     color: $magenta;
     font-size: 32px;
