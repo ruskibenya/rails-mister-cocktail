@@ -16,8 +16,7 @@ class CocktailsController < ApplicationController
       fav_cocktails.push(fav.cocktail_id)
     end
 
-    # @favorited = current_user.favorite_cocktails.include?(@place.id)
-    fav_cocktails.include?(@cocktail.id)
+    @favorited = fav_cocktails.include?(@cocktail.id)
 
   end
 
@@ -45,11 +44,11 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     if type == "favorite"
       current_user.favorites << @cocktail
-      redirect_back fallback_location: root_path, notice: 'You favorited #{@cocktail.name}'
+      redirect_back fallback_location: root_path, notice: "You favorited #{@cocktail.name}"
 
     elsif type == "unfavorite"
       current_user.favorites.delete(@cocktail)
-      redirect_back fallback_location: root_path, notice: 'Unfavorited #{@cocktail.name}'
+      redirect_back fallback_location: root_path, notice: "Unfavorited #{@cocktail.name}"
 
     else
       # Type missing, nothing happens
